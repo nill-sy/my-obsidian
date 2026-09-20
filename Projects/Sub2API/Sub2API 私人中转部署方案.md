@@ -458,13 +458,52 @@ colima stop
 - [x] 接入第一个 OpenAI OAuth 账号。
 - [x] 创建 Codex 专用下游 API Key，并保存到 macOS 钥匙串。
 - [x] 创建 `sub2api` Profile 并完成 Responses 最小链路测试。
+- [x] 将 Codex 用户级默认 Provider 设为 Sub2API，并完成桌面端同配置链路测试。
+
+### Codex 桌面端使用 Sub2API
+
+Codex 桌面端、Codex CLI 和 IDE 扩展共享用户级配置 `~/.codex/config.toml`。当前默认 Provider 已设置为 `sub2api`：
+
+```toml
+model = "gpt-6-astra"
+model_provider = "sub2api"
+
+[model_providers.sub2api]
+name = "Private Sub2API"
+base_url = "http://127.0.0.1:8080/v1"
+wire_api = "responses"
+```
+
+API Key 不写入配置文件，由 Codex 在运行时通过 `/usr/bin/security` 从 macOS 钥匙串服务 `codex-sub2api-api-key` 读取。原始配置备份在：
+
+```text
+~/.codex/config.toml.before-sub2api-desktop-20260920
+```
+
+使用步骤：
+
+1. 保证 Colima 和 Sub2API 容器正在运行。
+2. 完全退出并重新打开 Codex 桌面端。
+3. 新建一个任务；新任务会通过 `http://127.0.0.1:8080/v1` 请求 Sub2API。
+4. 无需退出桌面端中的 ChatGPT 账号；登录状态仍可供桌面功能使用。
+
+当前已用默认配置完成最小请求，Codex 输出 `provider: sub2api`，并成功返回 `DESKTOP_SUB2API_OK`。
+
+需要在终端临时绕过中转、直接使用 OpenAI 时，可执行：
+
+```bash
+CODEX_CONFIG_FILE=~/.codex/openai-direct.config.toml codex
+```
+
+该回退文件只保存 Provider 和模型设置，不包含凭据。
 
 ### 下一步操作
 
-1. 日常从终端执行 `codex --profile sub2api` 使用中转站。
-2. 保持服务仅监听 `127.0.0.1`；准备扩大访问范围前更换强密码并开启双因素认证。
-3. 完成流式输出、工具调用、长对话和会话恢复测试。
-4. 稳定运行至少 7 天后，再决定是否添加第二个备用账号。
+1. 重启 Codex 桌面端并新建任务；桌面端默认使用 Sub2API。
+2. 终端可直接执行 `codex` 使用同一个默认中转配置，也可执行 `codex --profile sub2api` 使用独立 Profile。
+3. 保持服务仅监听 `127.0.0.1`；准备扩大访问范围前更换强密码并开启双因素认证。
+4. 完成流式输出、工具调用、长对话和会话恢复测试。
+5. 稳定运行至少 7 天后，再决定是否添加第二个备用账号。
 
 ## 13. 参考资料
 
