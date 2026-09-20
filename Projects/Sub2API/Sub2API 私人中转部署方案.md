@@ -462,7 +462,10 @@ colima stop
 
 ### Codex 桌面端使用 Sub2API
 
-Codex 桌面端、Codex CLI 和 IDE 扩展共享用户级配置 `~/.codex/config.toml`。当前默认 Provider 已设置为 `sub2api`：
+> [!info] 2026-09-21 已停用
+> 实际使用后决定不再通过 Sub2API 在 ChatGPT 与 DeepSeek 之间切换。Codex 用户级配置已恢复为默认 OpenAI Provider；Sub2API 容器和 Colima 已停止，部署文件、数据库与钥匙串条目暂时保留。
+
+以下配置仅作为历史记录和恢复参考。Codex 桌面端、Codex CLI 和 IDE 扩展共享用户级配置 `~/.codex/config.toml`；此前使用的配置为：
 
 ```toml
 model = "gpt-6-astra"
@@ -480,16 +483,16 @@ API Key 不写入配置文件，由 Codex 在运行时通过 `/usr/bin/security`
 ~/.codex/config.toml.before-sub2api-desktop-20260920
 ```
 
-使用步骤：
+需要恢复中转时：
 
 1. 保证 Colima 和 Sub2API 容器正在运行。
 2. 完全退出并重新打开 Codex 桌面端。
 3. 新建一个任务；新任务会通过 `http://127.0.0.1:8080/v1` 请求 Sub2API。
 4. 无需退出桌面端中的 ChatGPT 账号；登录状态仍可供桌面功能使用。
 
-当前已用默认配置完成最小请求，Codex 输出 `provider: sub2api`，并成功返回 `DESKTOP_SUB2API_OK`。
+2026-09-20 曾用该配置完成最小请求，Codex 输出 `provider: sub2api`，并成功返回 `DESKTOP_SUB2API_OK`。
 
-需要在终端临时绕过中转、直接使用 OpenAI 时，可执行：
+历史上可用以下 Profile 临时绕过中转、直接使用 OpenAI：
 
 ```bash
 codex --profile openai-direct
@@ -499,11 +502,9 @@ codex --profile openai-direct
 
 ### 下一步操作
 
-1. 重启 Codex 桌面端并新建任务；桌面端默认使用 Sub2API。
-2. 终端可直接执行 `codex` 使用同一个默认中转配置，也可执行 `codex --profile sub2api` 使用独立 Profile。
-3. 保持服务仅监听 `127.0.0.1`；准备扩大访问范围前更换强密码并开启双因素认证。
-4. 完成流式输出、工具调用、长对话和会话恢复测试。
-5. 稳定运行至少 7 天后，再决定是否添加第二个备用账号。
+1. 完全退出并重新打开 Codex 桌面端，新任务直接使用 OpenAI。
+2. DeepSeek 在其官方客户端或单独支持 DeepSeek 的客户端中使用，避免把 Codex 的 Provider 切换与多模型聊天混在一起。
+3. 暂不删除 `/Users/zhd/IdeaProjects/sub2api-deploy`、Docker 数据卷和钥匙串条目，观察一段时间后再决定是否彻底清理。
 
 ## 13. 参考资料
 
