@@ -1,7 +1,7 @@
 ---
 title: Sub2API 私人中转部署方案
 date: 2026-09-20
-status: planning
+status: local-running
 tags:
   - AI基础设施
   - Sub2API
@@ -365,7 +365,89 @@ VPS 部署要求：
 | DeepSeek 接入 | 独立 API 渠道和模型组 | 避免与 GPT 会话和协议混合 |
 | 公网开放 | 暂不开放 | 降低攻击面和凭据泄露风险 |
 
-## 12. 参考资料
+## 12. 本机实际部署记录
+
+> [!success] 2026-09-20 已完成
+> Sub2API 已在本机启动，应用、PostgreSQL 和 Redis 三个容器均通过健康检查。管理页面只监听本机地址，不对局域网或公网开放。
+
+### 当前环境
+
+| 项目 | 当前值 |
+|---|---|
+| 部署目录 | `/Users/zhd/Documents/Services/sub2api-deploy` |
+| 容器运行环境 | Colima 0.10.3，2 CPU / 4 GB 内存 / 30 GB 磁盘 |
+| Docker CLI | 29.8.1 |
+| Compose | docker-compose 5.5.1 |
+| 运行模式 | Simple Mode |
+| 管理地址 | `http://127.0.0.1:8080` |
+| 管理员邮箱 | `admin@sub2api.local` |
+| 对外暴露 | 无，仅监听 `127.0.0.1` |
+| 数据目录 | `deploy/data`、`deploy/postgres_data`、`deploy/redis_data` |
+
+Docker Desktop 因安装过程需要管理员密码而未采用。本机改用 Colima 提供 Docker 兼容运行环境，不影响 Sub2API 的 Compose 部署。
+
+### 第一次登录
+
+浏览器打开：
+
+```text
+http://127.0.0.1:8080
+```
+
+管理员密码已随机生成并保存在权限为 `600` 的本机 `.env` 文件中。需要查看时在终端执行：
+
+```bash
+grep '^ADMIN_PASSWORD=' /Users/zhd/Documents/Services/sub2api-deploy/deploy/.env
+```
+
+不要把输出复制到 Obsidian、Git 或聊天记录中。首次登录后可以在后台修改管理员密码并开启双因素认证。
+
+### 日常命令
+
+```bash
+# 启动容器运行环境
+colima start
+
+# 启动 Sub2API
+cd /Users/zhd/Documents/Services/sub2api-deploy/deploy
+docker-compose -f docker-compose.local.yml up -d
+
+# 查看状态
+docker-compose -f docker-compose.local.yml ps
+
+# 查看应用日志
+docker-compose -f docker-compose.local.yml logs -f sub2api
+
+# 停止 Sub2API，保留全部数据
+docker-compose -f docker-compose.local.yml down
+
+# 停止 Colima
+colima stop
+```
+
+### 已验证项目
+
+- [x] 本机容器运行环境启动成功。
+- [x] PostgreSQL、Redis、Sub2API 均为 `healthy`。
+- [x] 数据库初始化和管理员创建成功。
+- [x] Simple Mode 生效。
+- [x] 服务仅监听 `127.0.0.1:8080`。
+- [x] 容器 DNS 可解析 GitHub 与 OpenAI 域名。
+- [x] 模型价格表已通过网络同步，从内置 203 个更新为 239 个模型。
+- [ ] 首次登录并开启管理员双因素认证。
+- [ ] 接入第一个 OpenAI OAuth 账号。
+- [ ] 创建个人下游 API Key。
+- [ ] 配置 Codex 并完成 Responses 测试。
+
+### 下一步操作
+
+1. 打开管理页面并使用本机 `.env` 中的管理员密码登录。
+2. 修改管理员密码并开启双因素认证。
+3. 在后台添加第一个 OpenAI OAuth 账号，只添加主账号。
+4. 建立 Codex 专用分组并生成个人下游 API Key。
+5. 完成后再修改 Codex 的 `~/.codex/config.toml`，避免在上游账号尚未就绪时提前切换。
+
+## 13. 参考资料
 
 - [Sub2API GitHub](https://github.com/Wei-Shaw/sub2api)
 - [Sub2API 中文 README](https://github.com/Wei-Shaw/sub2api/blob/main/README_CN.md)
