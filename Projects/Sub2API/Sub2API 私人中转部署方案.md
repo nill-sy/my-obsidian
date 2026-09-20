@@ -100,7 +100,7 @@ Sub2API 项目自身明确提示：将订阅账号额度包装或分发成 API �
 建议部署目录：
 
 ```text
-/Users/zhd/Documents/Services/sub2api-deploy
+/Users/zhd/IdeaProjects/sub2api-deploy
 ```
 
 数据目录与 Obsidian 仓库分开，避免数据库、Token 和日志被 Obsidian Git 同步。
@@ -112,6 +112,18 @@ Sub2API 的 Docker Compose 部署包含：
 - Sub2API
 - PostgreSQL 15+
 - Redis 7+
+
+### 5.2.1 Docker 在本项目中的作用
+
+Docker 负责把 Sub2API 及其依赖放在相互隔离、可重复启动的 Linux 容器中：
+
+- `sub2api` 容器运行网关后端和管理页面。
+- `postgres` 容器保存用户、账号、配置与调用记录等结构化数据。
+- `redis` 容器提供缓存、限流和任务状态。
+- Docker Compose 统一定义三个容器的版本、启动顺序、健康检查、内部网络、端口和数据挂载。
+- Colima 在 macOS 上提供 Linux 虚拟机与 Docker Engine；Docker CLI 和 Compose 负责向它发送管理命令。
+
+容器可以删除和重建，持久数据通过目录挂载保存在 `/Users/zhd/IdeaProjects/sub2api-deploy/deploy` 下。停止或重建容器不会清除这些数据；只有删除 `data`、`postgres_data`、`redis_data` 才会造成数据丢失。
 
 个人使用启用：
 
@@ -374,7 +386,7 @@ VPS 部署要求：
 
 | 项目 | 当前值 |
 |---|---|
-| 部署目录 | `/Users/zhd/Documents/Services/sub2api-deploy` |
+| 部署目录 | `/Users/zhd/IdeaProjects/sub2api-deploy` |
 | 容器运行环境 | Colima 0.10.3，2 CPU / 4 GB 内存 / 30 GB 磁盘 |
 | Docker CLI | 29.8.1 |
 | Compose | docker-compose 5.5.1 |
@@ -385,7 +397,7 @@ VPS 部署要求：
 | 对外暴露 | 无，仅监听 `127.0.0.1` |
 | 数据目录 | `deploy/data`、`deploy/postgres_data`、`deploy/redis_data` |
 
-Docker Desktop 因安装过程需要管理员密码而未采用。本机改用 Colima 提供 Docker 兼容运行环境，不影响 Sub2API 的 Compose 部署。
+本项目使用 Colima 提供 Docker 兼容运行环境，不依赖 Docker Desktop。执行命令前应确认 Docker 上下文为 `colima`，避免误连到其他本机 Docker Engine。
 
 ### 第一次登录
 
@@ -395,13 +407,7 @@ Docker Desktop 因安装过程需要管理员密码而未采用。本机改用 C
 http://127.0.0.1:8080
 ```
 
-管理员密码已随机生成并保存在权限为 `600` 的本机 `.env` 文件中。需要查看时在终端执行：
-
-```bash
-grep '^ADMIN_PASSWORD=' /Users/zhd/Documents/Services/sub2api-deploy/deploy/.env
-```
-
-不要把输出复制到 Obsidian、Git 或聊天记录中。首次登录后可以在后台修改管理员密码并开启双因素认证。
+管理员密码已按本次要求在本机初始化，并保存在权限为 `600` 的 `.env` 文件中。明文密码不写入 Obsidian 或 Git。当前服务只监听 `127.0.0.1`；以后开放到局域网、Tailscale 或公网前，必须更换强密码并开启双因素认证。
 
 ### 日常命令
 
@@ -410,7 +416,7 @@ grep '^ADMIN_PASSWORD=' /Users/zhd/Documents/Services/sub2api-deploy/deploy/.env
 colima start
 
 # 启动 Sub2API
-cd /Users/zhd/Documents/Services/sub2api-deploy/deploy
+cd /Users/zhd/IdeaProjects/sub2api-deploy/deploy
 docker-compose -f docker-compose.personal.yml up -d
 
 # 查看状态
@@ -442,8 +448,8 @@ colima stop
 
 ### 下一步操作
 
-1. 打开管理页面并使用本机 `.env` 中的管理员密码登录。
-2. 修改管理员密码并开启双因素认证。
+1. 打开管理页面并使用本次约定的管理员密码登录。
+2. 保持服务仅监听 `127.0.0.1`；准备扩大访问范围前更换强密码并开启双因素认证。
 3. 在后台添加第一个 OpenAI OAuth 账号，只添加主账号。
 4. 建立 Codex 专用分组并生成个人下游 API Key。
 5. 完成后再修改 Codex 的 `~/.codex/config.toml`，避免在上游账号尚未就绪时提前切换。
