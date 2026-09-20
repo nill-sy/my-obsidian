@@ -176,26 +176,38 @@ Simple Mode 用于隐藏 SaaS、支付和复杂计费功能，减少个人部署
 
 ## 阶段 C：配置 Codex
 
-在用户级 `~/.codex/config.toml` 中定义自定义提供商；不要写入项目仓库：
+当前采用独立 Profile，文件为 `~/.codex/sub2api.config.toml`。这样保留原生 OpenAI 登录作为默认配置，通过 `--profile sub2api` 显式切换到中转站：
 
 ```toml
-model = "<Sub2API 中实际启用的 Codex 模型>"
+model = "gpt-6-astra"
 model_provider = "sub2api"
+model_reasoning_effort = "low"
 
 [model_providers.sub2api]
 name = "Private Sub2API"
 base_url = "http://127.0.0.1:8080/v1"
-env_key = "SUB2API_API_KEY"
 wire_api = "responses"
+
+[model_providers.sub2api.auth]
+command = "/usr/bin/security"
+args = ["find-generic-password", "-a", "zhd", "-s", "codex-sub2api-api-key", "-w"]
+timeout_ms = 5000
+refresh_interval_ms = 0
 ```
 
-API Key 通过环境变量提供：
+Sub2API 下游 Key 保存在 macOS 登录钥匙串的 `codex-sub2api-api-key` 项中，不以明文写入配置。启动命令：
 
-```text
-SUB2API_API_KEY=<只保存在本机安全位置>
+```bash
+codex --profile sub2api
 ```
 
-不把真实 Key 直接写进 `config.toml`。如果 Codex 由图形界面启动，后续需要确定它读取环境变量的方式；必要时使用系统钥匙串或一个只输出 Token 的本地凭据命令。
+最小链路测试命令：
+
+```bash
+codex --profile sub2api exec --skip-git-repo-check 'Reply with exactly: SUB2API_OK'
+```
+
+2026-09-20 已完成测试，返回 `SUB2API_OK`。该测试覆盖钥匙串取 Key、Sub2API 鉴权、OpenAI OAuth 上游选择和 Responses API 返回。
 
 ## 阶段 D：添加第二个 GPT 账号
 
@@ -441,18 +453,18 @@ colima stop
 - [x] 服务仅监听 `127.0.0.1:8080`。
 - [x] 容器 DNS 可解析 GitHub 与 OpenAI 域名。
 - [x] 模型价格表已通过网络同步，从内置 203 个更新为 239 个模型。
-- [ ] 首次登录并开启管理员双因素认证。
-- [ ] 接入第一个 OpenAI OAuth 账号。
-- [ ] 创建个人下游 API Key。
-- [ ] 配置 Codex 并完成 Responses 测试。
+- [x] 首次登录管理后台。
+- [ ] 开启管理员双因素认证。
+- [x] 接入第一个 OpenAI OAuth 账号。
+- [x] 创建 Codex 专用下游 API Key，并保存到 macOS 钥匙串。
+- [x] 创建 `sub2api` Profile 并完成 Responses 最小链路测试。
 
 ### 下一步操作
 
-1. 打开管理页面并使用本次约定的管理员密码登录。
+1. 日常从终端执行 `codex --profile sub2api` 使用中转站。
 2. 保持服务仅监听 `127.0.0.1`；准备扩大访问范围前更换强密码并开启双因素认证。
-3. 在后台添加第一个 OpenAI OAuth 账号，只添加主账号。
-4. 建立 Codex 专用分组并生成个人下游 API Key。
-5. 完成后再修改 Codex 的 `~/.codex/config.toml`，避免在上游账号尚未就绪时提前切换。
+3. 完成流式输出、工具调用、长对话和会话恢复测试。
+4. 稳定运行至少 7 天后，再决定是否添加第二个备用账号。
 
 ## 13. 参考资料
 
