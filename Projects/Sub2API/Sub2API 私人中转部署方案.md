@@ -378,6 +378,7 @@ VPS 部署要求：
 | 容器运行环境 | Colima 0.10.3，2 CPU / 4 GB 内存 / 30 GB 磁盘 |
 | Docker CLI | 29.8.1 |
 | Compose | docker-compose 5.5.1 |
+| 本机 Compose 文件 | `deploy/docker-compose.personal.yml`（已从官方文件分离） |
 | 运行模式 | Simple Mode |
 | 管理地址 | `http://127.0.0.1:8080` |
 | 管理员邮箱 | `admin@sub2api.local` |
@@ -410,16 +411,16 @@ colima start
 
 # 启动 Sub2API
 cd /Users/zhd/Documents/Services/sub2api-deploy/deploy
-docker-compose -f docker-compose.local.yml up -d
+docker-compose -f docker-compose.personal.yml up -d
 
 # 查看状态
-docker-compose -f docker-compose.local.yml ps
+docker-compose -f docker-compose.personal.yml ps
 
 # 查看应用日志
-docker-compose -f docker-compose.local.yml logs -f sub2api
+docker-compose -f docker-compose.personal.yml logs -f sub2api
 
 # 停止 Sub2API，保留全部数据
-docker-compose -f docker-compose.local.yml down
+docker-compose -f docker-compose.personal.yml down
 
 # 停止 Colima
 colima stop
