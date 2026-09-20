@@ -492,7 +492,7 @@ API Key 不写入配置文件，由 Codex 在运行时通过 `/usr/bin/security`
 需要在终端临时绕过中转、直接使用 OpenAI 时，可执行：
 
 ```bash
-CODEX_CONFIG_FILE=~/.codex/openai-direct.config.toml codex
+codex --profile openai-direct
 ```
 
 该回退文件只保存 Provider 和模型设置，不包含凭据。
