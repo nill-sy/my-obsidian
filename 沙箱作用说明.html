@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>沙箱有什么用？</title>
+  <style>
+    :root { color-scheme: light; --ink:#17243a; --muted:#53627a; --blue:#2857d9; --pale:#eef3ff; --line:#dce4f2; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#f5f7fb; color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { max-width:850px; margin:48px auto; padding:0 20px; }
+    .card { background:white; border:1px solid var(--line); border-radius:22px; padding:clamp(24px,5vw,48px); box-shadow:0 12px 36px #20345d0d; }
+    .eyebrow { color:var(--blue); font-weight:700; letter-spacing:.08em; font-size:.82rem; text-transform:uppercase; }
+    h1 { font-size:clamp(2rem,6vw,3.3rem); line-height:1.12; margin:.45rem 0 1rem; }
+    .lead { font-size:1.18rem; color:var(--muted); max-width:65ch; }
+    .yard { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; margin:30px 0; }
+    .zone { min-height:145px; border-radius:16px; padding:20px; display:flex; flex-direction:column; justify-content:center; text-align:center; }
+    .inside { background:var(--pale); border:2px solid #9db5ff; }
+    .outside { background:#f7f8fa; border:2px dashed #c5cedb; color:#53627a; }
+    .zone strong { font-size:1.12rem; }
+    .zone span { margin-top:5px; font-size:.94rem; }
+    .fence { color:var(--blue); font-size:2rem; font-weight:800; }
+    h2 { font-size:1.25rem; margin:28px 0 10px; }
+    ul { padding-left:1.3rem; margin:8px 0; }
+    li { margin:7px 0; }
+    .note { margin-top:24px; padding:16px 18px; border-left:4px solid #f2a93b; background:#fff8e9; border-radius:8px; color:#553e14; }
+    .takeaway { margin-top:22px; font-weight:700; color:var(--blue); }
+    @media (max-width:560px) { main { margin:18px auto; } .yard { grid-template-columns:1fr; } .fence { transform:rotate(90deg); text-align:center; } .zone { min-height:110px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="card">
+      <div class="eyebrow">简单理解 · ELI5</div>
+      <h1>沙箱有什么用？</h1>
+      <p class="lead"><strong>沙箱把程序放进一个受限制的环境里，减少它出错时能影响的范围。</strong></p>
+
+      <section class="yard" aria-label="沙箱像一间围起来的小院子">
+        <div class="zone inside"><strong>院子里面</strong><span>程序可以做被允许的事<br>例如访问指定文件</span></div>
+        <div class="fence" aria-hidden="true">围栏</div>
+        <div class="zone outside"><strong>院子外面</strong><span>其他文件、系统资源<br>默认可能无法触碰</span></div>
+      </section>
+
+      <h2>它主要帮什么忙？</h2>
+      <ul>
+        <li><strong>限制访问：</strong>控制程序能读写哪些文件、运行哪些命令，或使用哪些网络资源。</li>
+        <li><strong>缩小意外范围：</strong>程序出错或行为不符合预期时，尽量把影响关在限制范围内。</li>
+        <li><strong>方便试验：</strong>可以在相对独立的环境里测试程序，不轻易动到真实系统。</li>
+      </ul>
+
+      <div class="note"><strong>注意：</strong>沙箱不是“绝对安全罩”。它能保护多少，取决于围栏怎么设置；而且“询问你是否允许”不等于沙箱，允许后操作仍可能发生在真实环境中。</div>
+      <p class="takeaway">一句话：沙箱不是让程序不犯错，而是尽量让错误少伤到外面。</p>
+    </article>
+  </main>
+</body>
+</html>
