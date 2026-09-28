@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>沙箱是什么？Pi 没有沙箱有什么影响？</title>
+<style>
+:root{color-scheme:light;--ink:#17233b;--muted:#53627a;--blue:#3158d5;--pale:#edf2ff;--line:#dce4f2;--orange:#fff1df}*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:900px;margin:32px auto;padding:0 18px}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,5vw,46px);box-shadow:0 14px 40px #1e31500d}.tag{color:var(--blue);font-weight:750;letter-spacing:.08em;font-size:.8rem}h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;margin:8px 0 12px}.intro{font-size:1.12rem;color:var(--muted);max-width:65ch}.diagram{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}.box{border-radius:18px;padding:20px;text-align:center;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center}.boxed{background:var(--pale);border:2px solid #a9bbff}.open{background:var(--orange);border:2px solid #f2c58f}.icon{font-size:3rem;line-height:1;margin-bottom:12px}.box h2{font-size:1.2rem;margin:0 0 6px}.box p{margin:0;color:var(--muted);max-width:30ch}.points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.point{padding:16px;border:1px solid var(--line);border-radius:14px;background:#fbfcff}.point strong{display:block;margin-bottom:5px}.point span{font-size:.94rem;color:var(--muted)}.caveat{margin-top:18px;padding:15px 17px;background:#f4f6f9;border-radius:12px;color:#43516a}.end{margin:20px 0 0;font-weight:750;color:var(--blue)}@media(max-width:620px){main{margin:14px auto}.diagram{grid-template-columns:1fr}.box{min-height:175px}.points{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main><article class="card">
+<div class="tag">一页看懂 · ELI5</div>
+<h1>沙箱是什么？<br>Pi 没有沙箱会怎样？</h1>
+<p class="intro"><strong>沙箱像围栏：它把程序限制在一块指定区域里，减少程序出错时能碰到的东西。</strong></p>
+<section class="diagram" aria-label="有沙箱和没有沙箱的对比">
+<div class="box boxed"><div class="icon" aria-hidden="true">🏡</div><h2>有沙箱：围栏里面</h2><p>程序通常只能访问被允许的文件和资源。出了差错，影响范围较小。</p></div>
+<div class="box open"><div class="icon" aria-hidden="true">🗝️</div><h2>Pi 没有沙箱：按账户权限办事</h2><p>Pi 运行的命令可能使用当前账户能访问的文件和系统资源。</p></div>
+</section>
+<h2>这对使用 Pi 有什么影响？</h2>
+<div class="points">
+<div class="point"><strong>更要留意命令</strong><span>删除、覆盖、安装等操作，可能直接影响真实文件或系统。</span></div>
+<div class="point"><strong>确认提示不等于隔离</strong><span>它像“先问你再动手”；你允许后，操作仍可能在真实环境执行。</span></div>
+<div class="point"><strong>缩小风险范围</strong><span>检查命令、备份重要文件，或在容器、虚拟机等隔离环境运行。</span></div>
+</div>
+<p class="caveat"><strong>注意：</strong>实际能访问什么，仍受 macOS/Linux/Windows 权限、Pi 的启动方式和外部工具限制影响。“没有沙箱”不表示一定能绕过操作系统权限，也不表示每个 Pi 环境都完全相同。</p>
+<p class="end">一句话：沙箱负责“围起来”；没有沙箱时，就要更谨慎地管理程序能做什么。</p>
+</article></main></body></html>
