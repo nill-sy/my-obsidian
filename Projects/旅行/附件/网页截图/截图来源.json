@@ -1,0 +1,137 @@
+[
+  {
+    "title": "出海行程",
+    "captured_date": "2026-10-25",
+    "source_url": "https://nikornmarinetourphuket.com/packages/351",
+    "original": "船公司-皇帝岛行程.png",
+    "excerpt": "船公司-皇帝岛行程-摘图.png",
+    "crop": [
+      110,
+      50,
+      815,
+      690
+    ],
+    "meaning": "集合、登岛、回港时间；中午 AM 为原站标注，未修改",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "国内购买",
+    "captured_date": "2026-10-25",
+    "source_url": "https://touch.piao.qunar.com/touch/detail_33057.html?in_track=travel_touch_bybd_yyy",
+    "original": "去哪儿-皇帝岛套餐.png",
+    "excerpt": "去哪儿-皇帝岛套餐-摘图.png",
+    "crop": [
+      10,
+      35,
+      1265,
+      610
+    ],
+    "meaning": "未选出行日期的商品列表起价，不是 2027 年报价",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "按摩店联系",
+    "captured_date": "2026-10-25",
+    "source_url": "https://phumontraspa.co/",
+    "original": "Phumontra-官网联系方式.png",
+    "excerpt": "Phumontra-官网联系方式-摘图.png",
+    "crop": [
+      35,
+      145,
+      735,
+      420
+    ],
+    "meaning": "Kathu 地址、电话，以及原站并列的两组营业时段",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "泰餐价格",
+    "captured_date": "2026-10-25",
+    "source_url": "https://rebe-restaurant.com/en/menu/",
+    "original": "ReBe-泰餐菜单价格.png",
+    "excerpt": "ReBe-泰餐菜单价格-摘图.png",
+    "crop": [
+      65,
+      0,
+      1215,
+      550
+    ],
+    "meaning": "官方菜单的鸡肉炒饭 200、鸡肉 Pad Thai 210 泰铢",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "新加坡申报",
+    "captured_date": "2026-10-25",
+    "source_url": "https://www.ica.gov.sg/enter-transit-depart/entering-singapore/sg-arrival-card",
+    "original": "新加坡ICA-申报对象与时间.png",
+    "excerpt": "新加坡ICA-申报对象与时间-摘图.png",
+    "crop": [
+      20,
+      0,
+      1265,
+      665
+    ],
+    "meaning": "免费、国际中转不入境的例外、含抵达当天的三天申报窗口",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "泰国申报",
+    "captured_date": "2026-10-25",
+    "source_url": "https://tdac.immigration.go.th/manual/en/faq.html",
+    "original": "泰国TDAC-时间与资料.png",
+    "excerpt": "泰国TDAC-时间与资料-摘图.png",
+    "crop": [
+      330,
+      155,
+      1240,
+      575
+    ],
+    "meaning": "三天内提交及护照、航班、住宿、邮箱等资料",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "中行换汇",
+    "captured_date": "2026-10-25",
+    "source_url": "https://www.boc.cn/pbservice/pb4/200806/t20080626_767.html",
+    "original": "中行-泰铢与现钞预约.png",
+    "excerpt": "中行-泰铢与现钞预约-摘图.png",
+    "crop": [
+      165,
+      72,
+      870,
+      705
+    ],
+    "meaning": "泰国铢在可兑换币种内，可在线或电话预约现钞",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "中国使馆现金口径",
+    "captured_date": "2026-10-25",
+    "source_url": "https://th.china-embassy.gov.cn/chn/sgxw/202606/t20260609_11940504.html",
+    "original": "中国驻泰使馆-入境准备与现金.png",
+    "excerpt": "中国驻泰使馆-入境准备与现金-摘图.png",
+    "crop": [
+      155,
+      94,
+      1130,
+      605
+    ],
+    "meaning": "原文针对中国公民，通常个人 10,000 泰铢或等值外币",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  },
+  {
+    "title": "泰国使馆一般口径",
+    "captured_date": "2026-10-25",
+    "source_url": "https://washingtondc.thaiembassy.org/en/page/visaexempt-voajul2024",
+    "original": "泰国使馆-一般免签现金口径.png",
+    "excerpt": "泰国使馆-一般免签现金口径-摘图.png",
+    "crop": [
+      15,
+      410,
+      1265,
+      710
+    ],
+    "meaning": "一般旅游免签页列每人 20,000 泰铢；本次适用性待核实",
+    "processing": "仅裁剪原始截图，未改写网页文字、价格或画面内容"
+  }
+]
