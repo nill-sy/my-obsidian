@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="360" viewBox="0 0 1440 360">
+<defs><style>text{font-family:"PingFang SC","Microsoft YaHei",sans-serif}.ink{fill:#153A47}.muted{fill:#57717A}</style><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#87ABA8"/></marker></defs>
+<rect width="1440" height="360" rx="26" fill="#F0F5F1"/>
+<text x="46" y="55" class="ink" font-size="28" font-weight="650">两段住宿，围绕两个重点来玩</text>
+<rect x="46" y="83" width="620" height="221" rx="20" fill="white"/>
+<rect x="774" y="83" width="620" height="221" rx="20" fill="white"/>
+<text x="76" y="122" fill="#1B8586" font-size="20" font-weight="650">前两晚  02.08—02.10</text>
+<text x="76" y="166" class="ink" font-size="30" font-weight="650">查龙住宿 → 查龙码头</text>
+<path d="M339 182 V215" fill="none" stroke="#87ABA8" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="76" y="258" class="ink" font-size="25">皇帝岛 ＋ 珊瑚岛一日游</text>
+<text x="804" y="122" fill="#1B8586" font-size="20" font-weight="650">后两晚  02.10—02.12</text>
+<text x="804" y="166" class="ink" font-size="30" font-weight="650">卡塔住宿 → 卡塔 / 卡伦海滩</text>
+<path d="M1066 182 V215" fill="none" stroke="#87ABA8" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="804" y="258" class="ink" font-size="25">另乘车去 Phumontra 卡图区店</text>
+<path d="M683 191 H754" fill="none" stroke="#87ABA8" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="720" y="169" text-anchor="middle" class="muted" font-size="16">换酒店</text>
+<text x="47" y="337" class="muted" font-size="17">活动与住宿的关系示意，非导航地图；未表示实际距离、方向或车程。依据及购买入口见正文。</text>
+</svg>

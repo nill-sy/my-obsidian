@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620">
+<defs>
+ <linearGradient id="sea" x2="1" y2="1"><stop stop-color="#CAE5DC"/><stop offset="1" stop-color="#84C5C3"/></linearGradient>
+ <style>text{font-family:"PingFang SC","Microsoft YaHei",sans-serif}.ink{fill:#153A47}.muted{fill:#57717A}.small{font-size:19px}.day{font-size:23px;font-weight:700}.title{font-size:27px;font-weight:650}</style>
+</defs>
+<rect width="1440" height="620" rx="32" fill="#F8F6EF"/>
+<text x="58" y="66" fill="#1B8586" font-size="18" letter-spacing="4">OUR PHUKET GETAWAY · 2027</text>
+<text x="55" y="135" class="ink" font-size="57" font-weight="700">一起去普吉岛</text>
+<text x="59" y="180" class="muted" font-size="25">02.08—02.12  /  两个人 · 四晚 · 三个完整游玩日</text>
+<g transform="translate(1000 20)">
+ <circle cx="245" cy="62" r="39" fill="#E9B384"/>
+ <path d="M-40 178 Q90 119 205 169 T400 151 L440 262 L-40 262Z" fill="url(#sea)"/>
+ <path d="M-10 209 Q105 172 240 212 T440 193" fill="none" stroke="#F8F6EF" stroke-width="4"/>
+ <path d="M45 196 Q156 150 265 214 L266 248 L45 248Z" fill="#EBD9B7"/>
+ <path d="M143 196 Q162 139 154 108" fill="none" stroke="#675742" stroke-width="10" stroke-linecap="round"/>
+ <path d="M154 112 Q90 62 76 119 Q118 95 154 112 M154 112 Q193 50 222 96 Q180 88 154 112 M154 112 Q216 109 230 145 Q188 124 154 112 M154 112 Q113 125 101 155 Q106 114 154 112" fill="#327A68"/>
+ <path d="M301 199 L366 199 L352 213 L313 213Z" fill="#153A47"/>
+ <path d="M333 151 L333 196 L365 196Z" fill="#FFFDF7"/>
+ <path d="M327 163 L327 196 L303 196Z" fill="#EFAF8E"/>
+</g>
+<path d="M185 293 H1250" stroke="#C9D7D2" stroke-width="3" stroke-dasharray="7 10"/>
+<g transform="translate(56 0)">
+    <circle cx="126" cy="293" r="8" fill="#1B8586"/>
+    <rect y="321" width="252" height="213" rx="19" fill="#FFFFFF"/>
+    <rect x="18" y="339" width="112" height="35" rx="17" fill="#1B8586"/>
+    <text x="74" y="364" text-anchor="middle" fill="white" class="day" font-size="20">02 / 08</text>
+    <text x="19" y="416" class="ink title">抵达 · 查龙</text>
+    <text x="19" y="459" class="muted small">17:10 抵达普吉</text>
+    <text x="19" y="492" class="muted small">入住 SHIN Arch39</text></g><g transform="translate(324 0)">
+    <circle cx="126" cy="293" r="8" fill="#1B8586"/>
+    <rect y="321" width="252" height="213" rx="19" fill="#FFFFFF"/>
+    <rect x="18" y="339" width="112" height="35" rx="17" fill="#1B8586"/>
+    <text x="74" y="364" text-anchor="middle" fill="white" class="day" font-size="20">02 / 09</text>
+    <text x="19" y="416" class="ink title">皇帝岛出海</text>
+    <text x="19" y="459" class="muted small">浮潜与沙滩</text>
+    <text x="19" y="492" class="muted small">套餐、船班待确认</text></g><g transform="translate(592 0)">
+    <circle cx="126" cy="293" r="8" fill="#1B8586"/>
+    <rect y="321" width="252" height="213" rx="19" fill="#FFFFFF"/>
+    <rect x="18" y="339" width="112" height="35" rx="17" fill="#1B8586"/>
+    <text x="74" y="364" text-anchor="middle" fill="white" class="day" font-size="20">02 / 10</text>
+    <text x="19" y="416" class="ink title">换酒店 · 卡塔</text>
+    <text x="19" y="459" class="muted small">入住 Niranapa</text>
+    <text x="19" y="492" class="muted small">下午海滩放空</text></g><g transform="translate(860 0)">
+    <circle cx="126" cy="293" r="8" fill="#1B8586"/>
+    <rect y="321" width="252" height="213" rx="19" fill="#FFFFFF"/>
+    <rect x="18" y="339" width="112" height="35" rx="17" fill="#1B8586"/>
+    <text x="74" y="364" text-anchor="middle" fill="white" class="day" font-size="20">02 / 11</text>
+    <text x="19" y="416" class="ink title">按摩 · 卡伦</text>
+    <text x="19" y="459" class="muted small">Phumontra 双人按摩</text>
+    <text x="19" y="492" class="muted small">拍照休息、海滩散步</text></g><g transform="translate(1128 0)">
+    <circle cx="126" cy="293" r="8" fill="#B67550"/>
+    <rect y="321" width="252" height="213" rx="19" fill="#FFFFFF"/>
+    <rect x="18" y="339" width="112" height="35" rx="17" fill="#B67550"/>
+    <text x="74" y="364" text-anchor="middle" fill="white" class="day" font-size="20">02 / 12</text>
+    <text x="19" y="416" class="ink title">清晨返程</text>
+    <text x="19" y="459" class="muted small">10:55 普吉起飞</text>
+    <text x="19" y="492" class="muted small">13 日 00:05 抵杭</text></g><text x="58" y="580" class="muted" font-size="18">出发前一晚赴机场：2 月 7 日晚　｜　全部时间为当地时间　｜　游玩为建议安排，尚未预约</text>
+<text x="1384" y="580" text-anchor="end" fill="#7E9698" font-size="16">装饰插画 · 非实景</text></svg>
